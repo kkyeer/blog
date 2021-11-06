@@ -33,3 +33,12 @@ docker create \
   --restart unless-stopped \
   linuxserver/qbittorrent
 ```
+
+## jellyfin
+
+```shell
+docker run -d -v /etc/jellyfin/config:/config -v /data/nas:/mnt/nas -p 28920:8920 -p28096:8096 
+--device=/dev/dri/renderD128 
+--device /dev/dri/card0:/dev/dri/card0
+--name jellyfin  jellyfin/jellyfin
+```
