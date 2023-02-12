@@ -28,12 +28,12 @@ docker create \
   --net=host \
   -v /etc/qbittorrent/:/config \
   -v /data/download:/downloads \
+  -v /data/nas2/movie:/data/dmovie \
+  -v /data/nas2/tv:/data/dtv \
   -v /data/windown/download:/data/downloads \
   -v /data/windown/done:/data/done \
-  -v /data/nas2/tv:/data/dtv \
-  -v /data/nas2/movie:/data/dmovie \
   --restart unless-stopped \
-  linuxserver/qbittorrent
+  linuxserver/qbittorrent:4.4.3
 ```
 
 ## EMBY
@@ -93,3 +93,20 @@ docker run --name nginx -d --net=host \
 -v /etc/nginx/:/etc/nginx/:rw \
 nginx
 ```
+
+## cloudreve网盘
+
+```shell
+docker run -d \
+  --name cloudreve \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ="Asia/Shanghai" \
+  -p 15212:5212 \
+  --restart=unless-stopped \
+  -v /home/kk/data/cloudreve/upload:/cloudreve/uploads \
+  -v /home/kk/data/cloudreve/config:/cloudreve/config \
+  -v /home/kk/data/cloudreve/db:/cloudreve/db \
+  -v /home/kk/data/cloudreve/avatar:/cloudreve/avatar \
+  xavierniu/cloudreve
+  ```
