@@ -33,7 +33,7 @@ docker create \
   -v /data/windown/download:/data/downloads \
   -v /data/windown/done:/data/done \
   --restart unless-stopped \
-  linuxserver/qbittorrent:4.4.3
+  qbittorrent/4.2.5
 ```
 
 ## EMBY
