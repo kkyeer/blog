@@ -57,26 +57,6 @@ getent group render | cut -d: -f3
 
 ## jellyfin
 
-> 10.7
-
-```shell
-docker run -d -v /etc/jellyfin/config:/config -v /data/nas:/mnt/nas -v /data/nas2:/mnt/nas2 -p 28920:8920 -p28096:8096 \
- --device /dev/dri/renderD128:/dev/dri/renderD128 \
- --env UID=1000 \
- --env GID=108 \
- --env GIDLIST=108 \
---name jellyfin3  jellyfin/jellyfin
-```
-
-完成后，需要手动升级jellyfin-ffmpeg(10.7.0问题)
-下载路径: https://repo.jellyfin.org/releases/server/debian/stable/ffmpeg/jellyfin-ffmpeg_4.4.1-4-buster_amd64.deb
-安装:
-
-```shell
-docker exec -it jellyfin /bin/bash
-dpkg -i xxx.deb
-```
-
 > 10.8
 
 ```shell
